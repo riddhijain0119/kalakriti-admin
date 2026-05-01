@@ -13,6 +13,7 @@ from routers.admin_orders import router as admin_orders_router
 from routers.admin_analytics import router as admin_analytics_router
 from routers.public import router as public_router
 from routers.uploads import router as uploads_admin_router, public_router as uploads_public_router
+from routers.compat import router as compat_router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("kalakriti")
@@ -65,4 +66,5 @@ app.include_router(admin_orders_router)
 app.include_router(admin_analytics_router)
 app.include_router(uploads_admin_router)
 app.include_router(uploads_public_router)
+app.include_router(compat_router)
 app.include_router(public_router)
