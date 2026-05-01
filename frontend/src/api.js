@@ -83,6 +83,13 @@ export const adminApi = {
   // settings
   getSettings: () => api.get("/admin/settings").then((r) => r.data),
   updateSettings: (body) => api.put("/admin/settings", body).then((r) => r.data),
+
+  // uploads
+  uploadImage: (file) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    return api.post("/admin/upload", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
 };
 
 export const publicApi = {

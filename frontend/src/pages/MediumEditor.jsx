@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { ImageUpload } from "@/components/ImageUpload";
 import { toast } from "sonner";
 import { ArrowLeft, Save, Loader2, Trash2, Plus } from "lucide-react";
 
@@ -80,8 +81,15 @@ export default function MediumEditorPage() {
             </div>
             <div className="mt-4"><Label>Tagline</Label><Input value={m.tagline} onChange={(e) => setM({ ...m, tagline: e.target.value })}/></div>
             <div className="mt-4"><Label>Description</Label><Textarea rows={3} value={m.description} onChange={(e) => setM({ ...m, description: e.target.value })}/></div>
-            <div className="mt-4"><Label>Hero image URL</Label><Input value={m.image_url} onChange={(e) => setM({ ...m, image_url: e.target.value })} placeholder="https://..."/></div>
-            {m.image_url && <img src={m.image_url} alt={m.name} className="mt-3 rounded-lg h-40 object-cover" onError={(e) => e.target.style.display = "none"}/>}
+            <div className="mt-4">
+              <ImageUpload
+                value={m.image_url}
+                onChange={(url) => setM({ ...m, image_url: url })}
+                label="Hero image (shown on kalakritishop.in)"
+                aspect="16/9"
+                testid="medium-hero-upload"
+              />
+            </div>
           </div>
 
           {/* Pricing */}
