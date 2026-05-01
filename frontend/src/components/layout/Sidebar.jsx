@@ -26,8 +26,8 @@ const groups = [
   {
     label: "Commerce",
     items: [
-      { to: "/orders", icon: ShoppingBag, label: "Orders", testid: "nav-orders" },
-      { to: "/mediums", icon: Palette, label: "Mediums", testid: "nav-mediums" },
+      { to: "/orders", icon: ShoppingBag, label: "Orders & Shipping", testid: "nav-orders" },
+      { to: "/mediums", icon: Palette, label: "Listings & Pricing", testid: "nav-mediums" },
       { to: "/coupons", icon: Ticket, label: "Coupons", testid: "nav-coupons" },
     ],
   },
