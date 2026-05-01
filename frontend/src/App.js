@@ -1,52 +1,120 @@
-import { useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+import { AuthProvider } from "@/context/AuthContext";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
+import LoginPage from "@/pages/Login";
+import DashboardPage from "@/pages/Dashboard";
+import OrdersPage from "@/pages/Orders";
+import OrderDetailPage from "@/pages/OrderDetail";
+import MediumsPage from "@/pages/Mediums";
+import MediumEditorPage from "@/pages/MediumEditor";
+import GalleryPage from "@/pages/Gallery";
+import TestimonialsPage from "@/pages/Testimonials";
+import ContentPage from "@/pages/Content";
+import CouponsPage from "@/pages/Coupons";
+import SettingsPage from "@/pages/Settings";
+import AnalyticsPage from "@/pages/Analytics";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/orders"
+              element={
+                <ProtectedRoute>
+                  <OrdersPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/orders/:id"
+              element={
+                <ProtectedRoute>
+                  <OrderDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/mediums"
+              element={
+                <ProtectedRoute>
+                  <MediumsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/mediums/:id"
+              element={
+                <ProtectedRoute>
+                  <MediumEditorPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/gallery"
+              element={
+                <ProtectedRoute>
+                  <GalleryPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/testimonials"
+              element={
+                <ProtectedRoute>
+                  <TestimonialsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content"
+              element={
+                <ProtectedRoute>
+                  <ContentPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/coupons"
+              element={
+                <ProtectedRoute>
+                  <CouponsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <SettingsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/analytics"
+              element={
+                <ProtectedRoute>
+                  <AnalyticsPage />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

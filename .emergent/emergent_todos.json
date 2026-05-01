@@ -13,30 +13,26 @@
   },
   {
     "content": "Phase 2: Design guidelines via design_agent",
-    "status": "in_progress"
+    "status": "completed"
   },
   {
     "content": "Phase 2: Backend implementation (models, public + admin routers, integrations)",
-    "status": "pending"
+    "status": "completed"
   },
   {
-    "content": "Phase 2: Seed default mediums + homepage content",
-    "status": "pending"
+    "content": "Phase 2: Seed default mediums + homepage content + demo orders",
+    "status": "completed"
   },
   {
     "content": "Phase 2: Admin frontend (Dashboard, Orders, Mediums, Gallery, Testimonials, Content, Coupons, Settings, Analytics)",
-    "status": "pending"
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: Create INTEGRATION_GUIDE.md for Next.js site",
+    "status": "in_progress"
   },
   {
     "content": "Phase 2: End-to-end testing via testing_agent_v3 (all user stories)",
-    "status": "pending"
-  },
-  {
-    "content": "Phase 3: Admin JWT auth + CORS + hardening",
-    "status": "pending"
-  },
-  {
-    "content": "Phase 4: Integration guide for Next.js site + deployment notes",
     "status": "pending"
   }
 ]
