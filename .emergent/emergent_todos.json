@@ -1,38 +1,26 @@
 [
   {
-    "content": "Phase 1: Get integration playbooks (Cashfree + Shiprocket)",
+    "content": "Phase 1: POC - integrations validated (MongoDB + Cashfree + Shiprocket)",
     "status": "completed"
   },
   {
-    "content": "Phase 1: Create POC test script covering MongoDB + Cashfree + Shiprocket",
+    "content": "Phase 2: Backend (models, public + admin routers, Cashfree + Shiprocket integrations)",
     "status": "completed"
   },
   {
-    "content": "Phase 1: Run POC and fix until all integrations pass",
+    "content": "Phase 2: Seed default mediums + homepage + gallery + testimonials + demo orders + coupon",
     "status": "completed"
   },
   {
-    "content": "Phase 2: Design guidelines via design_agent",
+    "content": "Phase 2: Admin frontend — all 12 pages with brand-matched design",
     "status": "completed"
   },
   {
-    "content": "Phase 2: Backend implementation (models, public + admin routers, integrations)",
+    "content": "Phase 2: INTEGRATION_GUIDE.md created for Next.js storefront integration",
     "status": "completed"
   },
   {
-    "content": "Phase 2: Seed default mediums + homepage content + demo orders",
+    "content": "Phase 2: End-to-end testing via testing_agent_v3 - 100% pass (28/28 backend, all frontend)",
     "status": "completed"
-  },
-  {
-    "content": "Phase 2: Admin frontend (Dashboard, Orders, Mediums, Gallery, Testimonials, Content, Coupons, Settings, Analytics)",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 2: Create INTEGRATION_GUIDE.md for Next.js site",
-    "status": "in_progress"
-  },
-  {
-    "content": "Phase 2: End-to-end testing via testing_agent_v3 (all user stories)",
-    "status": "pending"
   }
 ]
