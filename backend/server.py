@@ -34,15 +34,29 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Kalakriti Admin API", version="1.0.0", lifespan=lifespan)
 
-# CORS
+# CORS — must list explicit origins when allow_credentials=True (spec forbids wildcard with credentials)
 cors_origins = settings.cors_origins
-origins = [o.strip() for o in cors_origins.split(",")] if cors_origins != "*" else ["*"]
+if cors_origins == "*" or not cors_origins:
+    # Sensible defaults for Kalakriti
+    default_origins = [
+        "https://kalakritishop.in",
+        "https://www.kalakritishop.in",
+        "http://localhost:3000",
+    ]
+    origins = default_origins
+    allow_origin_regex = r"https://.*\.(emergent\.host|emergentagent\.com|vercel\.app)"
+else:
+    origins = [o.strip() for o in cors_origins.split(",") if o.strip()]
+    allow_origin_regex = r"https://.*\.(emergent\.host|emergentagent\.com|vercel\.app)"
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=allow_origin_regex,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # Base health router (for /api/ ping)
